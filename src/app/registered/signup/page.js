@@ -1,6 +1,7 @@
 "use client"
 
 import Navbar from '@/components/Navbar';
+import MultiSelect from '@/components/MultiSelect';
 
 import { useState } from 'react';
 import Link from 'next/link';
@@ -13,7 +14,7 @@ export default function RegisterUser() {
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
     const [city, setCity] = useState('');
-    const [interests, setInterests] = useState('');
+    const [interests, setInterests] = useState([]);
     const [receiveOffers, setReceiveOffers] = useState(false);
 
     const [email, setEmail] = useState('');
@@ -67,6 +68,8 @@ export default function RegisterUser() {
         router.push('/')
     }
 
+    const interestsOptions = ['football', 'politics', 'food']
+
     return (
         <section>
             <div>
@@ -94,8 +97,11 @@ export default function RegisterUser() {
                             </select>
                         </div>
                         <div className="mb-6">
-                            <label htmlFor="interests" className="block text-gray-800 font-bold">Your interests:</label>
-                            <input onChange={(e) => setInterests(e.target.value)} type="text" name="interests" id="interests" placeholder="Software engineering, Cycling,.." className="w-full border border-gray-300 py-2 pl-3 rounded mt-2 outline-none focus:ring-indigo-600 :ring-indigo-600" />
+                            <MultiSelect
+                                formFieldName={"interests"}
+                                options={interestsOptions}
+                                onChange={(e) => setInterests(e)}
+                                prompt="Select one or more interests" />
                         </div>
                         <div className="mb-6">
                             <label htmlFor="offers" className="block text-gray-800 font-bold">Do you want to receive our special offers?</label>

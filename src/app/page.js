@@ -1,10 +1,15 @@
 import Navbar from '@/components/Navbar';
+import WelcomePage from '@/components/WelcomePage';
 
 export default function Home() {
     return (
-        <div>
-            <Navbar />
-            <h1>TODO: add stuff for unregistered users</h1>
-        </div>
+        <section>
+            <div>
+                <Navbar />
+            </div>
+            <div>
+                <WelcomePage />
+            </div>
+        </section>
     );
 };

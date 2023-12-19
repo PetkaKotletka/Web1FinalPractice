@@ -4,14 +4,13 @@ export default function Navbar() {
     return (
         <header>
             <nav>
-                <div className="flex justify-between h-16 px-10 shadow items-center">
+                <div className="flex justify-between h-16 px-10 shadow-lg items-center">
                     <div className="flex items-center space-x-8">
                         <h1 className="text-xl lg:text-2xl font-bold cursor-pointer">Connexy</h1>
                         <div className="hidden md:flex justify-around space-x-4">
                             <Link href="/" className="hover:text-indigo-600 text-gray-700">Home</Link>
-                            <Link href="#" className="hover:text-indigo-600 text-gray-700">Discover</Link>
-                            <Link href="#" className="hover:text-indigo-600 text-gray-700">About</Link>
-                            <Link href="#" className="hover:text-indigo-600 text-gray-700">For commerces</Link>
+                            <Link href="/pageList" className="hover:text-indigo-600 text-gray-700">Discover</Link>
+                            <Link href="/merchant/login" className="hover:text-indigo-600 text-gray-700">For merchants</Link>
                         </div>
                     </div>
                     <div className="flex space-x-4 items-center">

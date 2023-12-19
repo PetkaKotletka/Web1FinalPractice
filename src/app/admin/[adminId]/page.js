@@ -1,6 +1,8 @@
 "use client"
 
 import AdminNavbar from '@/components/AdminNavbar'
+import AdminWelcomePage from '@/components/AdminWelcomePage';
+
 import { useParams } from 'next/navigation'
 
 export default function AdminPage() {
@@ -12,7 +14,7 @@ export default function AdminPage() {
                 <AdminNavbar userId={params.adminId} />
             </div>
             <div>
-                <p>Admin id: {params.adminId}</p>
+                <AdminWelcomePage userId={params.adminId} />
             </div>
         </section>
     )

@@ -7,10 +7,8 @@ import { useRouter } from 'next/navigation';
 
 export default function ModifyUser() {
     const router = useRouter();
-    
     const params = useParams()
     const [userData, setUserData] = useState(null);
-
 
     const [city, setCity] = useState('Madrid');
     const [interests, setInterests] = useState('');

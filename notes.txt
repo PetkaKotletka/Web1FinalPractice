@@ -1,0 +1,3 @@
+TODO:
+• For registered users web page cards must have "leave review" buttons
+• Add reviews tab for merchants

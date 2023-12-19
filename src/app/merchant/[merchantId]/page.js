@@ -1,19 +1,19 @@
 "use client"
 
-import RegisteredNavbar from '@/components/RegisteredNavbar'
-import RegisteredWelcomePage from '@/components/RegisteredWelcomePage';
+import MerchantNavbar from '@/components/MerchantNavbar'
+import MerchantWelcomePage from '@/components/MerchantWelcomePage';
 
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'next/navigation'
 
-export default function UserPage() {
+export default function MerchantPage() {
     const params = useParams()
-    const [userData, setUserData] = useState(null);
+    const [merchantData, setMerchantData] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(`/api/users/${params.userId}`, {
+                const response = await fetch(`/api/merchants/${params.merchantId}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -21,26 +21,26 @@ export default function UserPage() {
                 });
 
                 const data = await response.json();
-                setUserData(data.data)
+                setMerchantData(data)
             } catch (error) {
                 console.error("Error: ", error)
             }
         }
 
         fetchData()
-    }, [params.userId])
+    }, [params.merchantId])
 
-    if (!userData) {
+    if (!merchantData) {
         return <div>Loading...</div>
     }
 
     return (
         <section>
             <div>
-                <RegisteredNavbar userId={params.userId} userEmail={userData.email} />
+                <MerchantNavbar merchantId={params.merchantId} merchantName={merchantData.name} />
             </div>
             <div>
-                <RegisteredWelcomePage userId={params.userId} />
+                <MerchantWelcomePage userId={params.merchantId} />
             </div>
         </section>
     )

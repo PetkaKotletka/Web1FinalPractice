@@ -4,7 +4,7 @@ import { readFileSync } from 'fs';
 export async function POST(request) {
     const data = await request.json()
     try{
-        const users = JSON.parse(readFileSync("data/commerces.txt"))
+        const users = JSON.parse(readFileSync("data/merchants.txt"))
         const user = users.filter(user => user.username == data.username && user.password == data.password)
         if (user.length > 0) {
             return NextResponse.json({message: "User exists...", status: 200})

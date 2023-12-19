@@ -3,8 +3,12 @@ import { readFileSync, writeFileSync } from 'fs';
 
 export async function GET() {
     try {
-        const users = JSON.parse(readFileSync('data/users.txt'));
-        return NextResponse.json({ users });
+        const fileContent = readFileSync("data/users.txt");
+        if (fileContent.length == 0) {
+            return NextResponse.json([])
+        }
+        const users = JSON.parse(fileContent);
+        return NextResponse.json(users);
     } catch (e) {
         return NextResponse.json({
             message: 'Error optaining users',
